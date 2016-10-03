@@ -11,14 +11,16 @@ public class ListPractice extends Object implements List {
 
     private Node head;
     private  Node curr;
+    private int length = 0;
 
     public ListPractice() {
         //empty
     }
 
     public void clear() {
-        head.setNext(null);
-        curr.setNext(null);
+        head = null;
+        curr = head;
+        length = 0;
     }
 
     public Object getValue() {
@@ -28,18 +30,30 @@ public class ListPractice extends Object implements List {
     public void insert(Object o) {
         // if curr == head, make head = new node(o)
         if (curr == head) {
-            // head.setNext(curr);
+            head = new Node(o);
+            if (curr == null) {
+                curr = head;
+            } else {
+                head.setNext(curr);
+                curr.setPrev(head);
+            }
+        } else {
+            Node myNode = new Node(o);
+            myNode.setNext(curr);
+            myNode.setPrev(curr.getPrev());
+
+            curr.getPrev().setNext(myNode);
+            curr.setPrev(myNode);
+            // curr.setNext();
 
         }
+
         // relink existing nodes around the new one
+        length++;
     }
 
     public int length() {
-        int length = 0;
-        curr = head;
-        while (curr.getNext() != null) {
-            length++;
-        }
+
         return length;
     }
 
