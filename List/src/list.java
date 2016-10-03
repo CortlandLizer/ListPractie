@@ -27,11 +27,20 @@ public class ListPractice extends Object implements List {
 
     public void insert(Object o) {
         // if curr == head, make head = new node(o)
+        if (curr == head) {
+            // head.setNext(curr);
+
+        }
         // relink existing nodes around the new one
     }
 
     public int length() {
-
+        int length = 0;
+        curr = head;
+        while (curr.getNext() != null) {
+            length++;
+        }
+        return length;
     }
 
     public void next() {
