@@ -13,7 +13,7 @@ public class ListPractice extends Object implements List {
     private  Node curr;
 
     public ListPractice() {
-//empty
+        //empty
     }
 
     public void clear() {
